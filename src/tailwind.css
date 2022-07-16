@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+	html {
+		scroll-padding-top: 10vh;
+	}
+}
+
 .navbar {
 	@apply min-h-[10vh];
 }

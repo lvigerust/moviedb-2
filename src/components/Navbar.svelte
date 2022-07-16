@@ -1,4 +1,25 @@
-<div class="navbar bg-base-100">
+<script>
+	let previousY = 0;
+	let currentY = 0;
+	let clientHeight = 0;
+
+	const deriveDirection = (y) => {
+		const direction = !previousY || previousY < y ? 'down' : 'up';
+		previousY = y;
+		return direction;
+	};
+
+	$: scrollDirection = deriveDirection(currentY);
+	$: offscreen = scrollDirection === 'down' && currentY > clientHeight * 4;
+</script>
+
+<svelte:window bind:scrollY={currentY} />
+
+<div
+	class="navbar bg-base-100/75 sticky top-0 z-50 backdrop-blur-sm transition-transform ease-in "
+	class:motion-safe:-translate-y-full={offscreen}
+	bind:clientHeight
+>
 	<div class="navbar-start">
 		<div class="dropdown">
 			<!-- svelte-ignore a11y-label-has-associated-control -->
