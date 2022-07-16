@@ -25,10 +25,11 @@
 
 	// import components to be used in this page
 	import PopularMovies from '../components/PopularMovies.svelte';
+
+	// import transitions
+	import { fly } from 'svelte/transition';
 </script>
 
-<div class="container">
-	<section>
-		<PopularMovies {popularMovies} />
-	</section>
-</div>
+<section in:fly={{ y: 50, duration: 500, delay: 500 }} out:fly={{ duration: 500 }}>
+	<PopularMovies {popularMovies} />
+</section>

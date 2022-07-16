@@ -7,13 +7,13 @@
 	/* font-family: 'Roboto', sans-serif; */
 }
 
-body {
+main {
 	margin: 0 auto;
 	max-width: 1440px;
+	padding: 0 2rem 10vh;
 }
 
-@media only screen and (max-width: 1440px) {
-	body {
-		margin: 0 10%;
-	}
+h1 {
+	font-size: 2em;
+	font-weight: bold;
 }

@@ -29,21 +29,22 @@
 		transition: transform 0.5s ease;
 	}
 	img:hover {
-		transform: scale(1.1, 1.1);
+		transform: scale(1.075, 1.075);
 	}
 
 	h2 {
-		font-size: 1rem;
+		font-size: 1.1rem;
+		font-weight: bold;
 	}
+
 	.description {
 		display: flex;
 		flex-direction: column;
 		gap: 0.2rem;
 		height: 5vh;
+		font-size: 0.9rem;
 	}
-	p {
-		font-size: 0.8rem;
-	}
+
 	.movie-card {
 		display: flex;
 		flex-direction: column;
@@ -53,11 +54,5 @@
 	a {
 		text-decoration: none;
 		color: inherit;
-	}
-
-	@media only screen and (max-width: 1440px) {
-		img:hover {
-			transform: scale(1.05, 1.05);
-		}
 	}
 </style>

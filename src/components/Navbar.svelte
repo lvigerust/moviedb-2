@@ -28,7 +28,7 @@
 		</div>
 	</div>
 	<div class="navbar-center">
-		<a href="/" class="btn btn-ghost normal-case text-xl">Movie Database</a>
+		<a href="/" class="btn btn-ghost normal-case text-xl ">Movie Database</a>
 	</div>
 	<div class="navbar-end">
 		<button class="btn btn-ghost btn-circle">
