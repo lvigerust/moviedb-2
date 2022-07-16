@@ -101,7 +101,7 @@
 	img {
 		width: 100%;
 		border-radius: 1rem;
-		box-shadow: 0px 7.5px 2vh rgba(70, 70, 70, 0.5);
+		box-shadow: 0px 7.5px 2vh rgba(25, 25, 25, 0.5);
 	}
 
 	.txt-container {
@@ -132,10 +132,15 @@
 		object-fit: cover;
 
 		transform: scale(1, 1);
-		transition: transform 0.5s ease, box-shadow 0.5s ease;
+		transition: transform 0.5s ease;
 	}
 	.collection img:hover {
 		transform: scale(1.025, 1.025);
-		box-shadow: 0px 7.5px 2vh rgba(70, 70, 70, 0.75);
+	}
+
+	@media only screen and (max-width: 768px) {
+		.wrapper {
+			margin: 0 2.5%;
+		}
 	}
 </style>

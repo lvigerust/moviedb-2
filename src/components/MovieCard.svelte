@@ -24,7 +24,7 @@
 		margin-bottom: 0.75rem;
 
 		/* Effects */
-		box-shadow: 0px 7.5px 2vh rgba(70, 70, 70, 0.5);
+		box-shadow: 0px 7.5px 2vh rgba(25, 25, 25, 0.5);
 		transform: scale(1, 1);
 		transition: transform 0.5s ease;
 	}
