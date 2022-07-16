@@ -141,6 +141,7 @@
 	@media only screen and (max-width: 768px) {
 		.wrapper {
 			margin: 0 2.5%;
+			text-align: center;
 		}
 	}
 </style>

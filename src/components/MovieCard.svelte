@@ -51,4 +51,10 @@
 		justify-content: space-around;
 		padding: 0.75rem;
 	}
+
+	@media only screen and (max-width: 768px) {
+		img:hover {
+			transform: scale(1, 1);
+		}
+	}
 </style>
