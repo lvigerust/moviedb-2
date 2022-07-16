@@ -22,8 +22,8 @@
 				class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
 			>
 				<li><a href="/">Home</a></li>
-				<!-- svelte-ignore a11y-missing-attribute -->
-				<li><a>About</a></li>
+				<li><a href="/about">About</a></li>
+				<li><a href="/featureTesting">Testing</a></li>
 			</ul>
 		</div>
 	</div>

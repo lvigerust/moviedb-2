@@ -51,8 +51,4 @@
 		justify-content: space-around;
 		padding: 0.75rem;
 	}
-	a {
-		text-decoration: none;
-		color: inherit;
-	}
 </style>
