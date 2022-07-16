@@ -78,7 +78,7 @@
 		</label>
 	</div>
 
-	<footer class="footer p-10 bg-neutral text-center">
+	<footer class="footer p-10 bg-neutral">
 		<div>
 			<span class="footer-title">Services</span>
 			<p class="link link-hover">Branding</p>
