@@ -97,8 +97,4 @@
 		justify-content: center;
 		align-items: center;
 	}
-
-	.search {
-		display: flex;
-	}
 </style>
