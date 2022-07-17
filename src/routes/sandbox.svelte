@@ -1,12 +1,10 @@
 <script>
 	import { fly } from 'svelte/transition';
-
-	import SearchBar from '../components/development/SearchBar.svelte';
 </script>
 
 <div class="positioner" in:fly={{ y: 50, duration: 500, delay: 500 }} out:fly={{ duration: 500 }}>
 	<div class="content">
-		<SearchBar />
+		<!-- Insert test feature component here -->
 	</div>
 </div>
 
@@ -19,7 +17,7 @@
 		align-items: center;
 	}
 	.content {
-		padding: 7.5em;
+		padding: 15vh 20vw;
 		background: #2d2d2d;
 		box-shadow: 0 0 3em rgba(0, 0, 0, 0.25);
 		border-radius: 1vh;

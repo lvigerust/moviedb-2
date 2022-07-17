@@ -32,7 +32,7 @@
 			</ul>
 		</div>
 
-		<a href="/testing">
+		<a href="/sandbox">
 			<SearchBar />
 		</a>
 
