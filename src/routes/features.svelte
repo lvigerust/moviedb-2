@@ -32,9 +32,7 @@
 			</ul>
 		</div>
 
-		<a href="/sandbox">
-			<SearchBar />
-		</a>
+		<SearchBar />
 
 		<label class="swap swap-rotate">
 			<!-- this hidden checkbox controls the state -->

@@ -1,10 +1,12 @@
 <script>
 	import { fly } from 'svelte/transition';
+
+	/* Import test component here */
 </script>
 
 <div class="positioner" in:fly={{ y: 50, duration: 500, delay: 500 }} out:fly={{ duration: 500 }}>
 	<div class="content">
-		<!-- Insert test feature component here -->
+		<!-- Insert test component here -->
 	</div>
 </div>
 
