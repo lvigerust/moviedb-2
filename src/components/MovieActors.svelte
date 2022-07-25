@@ -1,11 +1,25 @@
 <script>
 	export let cast;
+	import ActorCard from './ActorCard.svelte';
+	console.log(cast[0]);
 </script>
 
-<h1>Actors</h1>
+<h1>Cast</h1>
 <div class="actors">
-	{#each Array(5) as _, actor}
-		<h3>{cast[actor].name}</h3>
-		<img src={'https://image.tmdb.org/t/p/w200' + cast[actor].profile_path} alt={actor.name} />
+	{#each cast as actor}
+		<ActorCard {actor} />
 	{/each}
 </div>
+
+<style>
+	h1 {
+		text-align: center;
+		margin-bottom: 1rem;
+	}
+	.actors {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+		grid-column-gap: 1.5rem;
+		grid-row-gap: 1rem;
+	}
+</style>

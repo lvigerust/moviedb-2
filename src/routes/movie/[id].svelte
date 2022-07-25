@@ -4,6 +4,7 @@
 	export async function load({ fetch, params }) {
 		const [movieDetailsRes, movieCreditsRes] = await Promise.all([
 			fetch(`https://api.themoviedb.org/3/movie/${params.id}?api_key=${envVar}&language=en-US`),
+
 			fetch(
 				`https://api.themoviedb.org/3/movie/${params.id}/credits?api_key=${envVar}&language=en-US`
 			)
@@ -11,7 +12,6 @@
 
 		const movieDetails = await movieDetailsRes.json();
 		const movieCredits = await movieCreditsRes.json();
-		console.log(movieCredits);
 
 		if (movieDetailsRes.ok && movieCreditsRes.ok) {
 			return {
