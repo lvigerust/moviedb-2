@@ -2,19 +2,23 @@
 	let envVar = import.meta.env.VITE_API;
 
 	export async function load({ fetch, params }) {
-		const res = await fetch(
-			`https://api.themoviedb.org/3/movie/${params.id}?api_key=${envVar}&language=en-US`
-		);
-		const movieDetails = await res.json();
+		const [movieDetailsRes, movieCreditsRes] = await Promise.all([
+			fetch(`https://api.themoviedb.org/3/movie/${params.id}?api_key=${envVar}&language=en-US`),
+			fetch(
+				`https://api.themoviedb.org/3/movie/${params.id}/credits?api_key=${envVar}&language=en-US`
+			)
+		]);
 
-		// console.log('Movie ID:', params.id);
-		// console.log('Movie details:', movieDetails);
+		const movieDetails = await movieDetailsRes.json();
+		const movieCredits = await movieCreditsRes.json();
+		console.log(movieCredits);
 
-		if (res.ok) {
+		if (movieDetailsRes.ok && movieCreditsRes.ok) {
 			return {
 				props: {
 					movieDetails,
-					movieCollection: movieDetails.belongs_to_collection
+					movieCollection: movieDetails.belongs_to_collection,
+					cast: movieCredits.cast
 				}
 			};
 		}
@@ -22,36 +26,41 @@
 </script>
 
 <script>
-	export let movieDetails;
-	export let movieCollection;
+	export let movieDetails, movieCollection, cast;
 
+	import MovieActors from '../../components/MovieActors.svelte';
 	import { fly } from 'svelte/transition';
 </script>
 
 <div class="wrapper" in:fly={{ y: 50, duration: 500, delay: 500 }} out:fly={{ duration: 500 }}>
-	{#if movieCollection != null}
-		<div class="movie-details">
-			<div class="img-container">
-				<img
-					src={'https://image.tmdb.org/t/p/original' + movieDetails.backdrop_path}
-					alt={movieDetails.title}
-				/>
-			</div>
-			<div class="txt-container">
-				<h1>{movieDetails.title}</h1>
-				<p class="overview">{movieDetails.overview}</p>
-				<p>
-					<span>Release date:</span>
-					{movieDetails.release_date} <br />
-					<span>Budget:</span> ${movieDetails.budget.toLocaleString('en-US')} <br />
-					<span>Rating:</span>
-					{movieDetails.vote_average} / 10<br />
-					<span>Runtime:</span>
-					{movieDetails.runtime} mins
-				</p>
-			</div>
+	<div class="movie-details">
+		<div class="img-container">
+			<img
+				src={'https://image.tmdb.org/t/p/original' + movieDetails.backdrop_path}
+				alt={movieDetails.title}
+			/>
 		</div>
-		<div class="collection">
+		<div class="txt-container">
+			<h1>{movieDetails.title}</h1>
+			<p class="overview">{movieDetails.overview}</p>
+			<p>
+				<span>Release date:</span>
+				{movieDetails.release_date} <br />
+				<span>Budget:</span> ${movieDetails.budget.toLocaleString('en-US')} <br />
+				<span>Rating:</span>
+				{movieDetails.vote_average} / 10<br />
+				<span>Runtime:</span>
+				{movieDetails.runtime} mins
+			</p>
+		</div>
+	</div>
+
+	<div class="movie-cast">
+		<MovieActors {cast} />
+	</div>
+
+	{#if movieCollection != null}
+		<div class="movie-collection">
 			<a sveltekit:prefetch sveltekit:noscroll href={'/collection/' + movieCollection.id}>
 				<p>Part of the <span>{movieCollection.name}</span></p>
 				<img
@@ -59,32 +68,6 @@
 					alt={movieCollection.name}
 				/>
 			</a>
-		</div>
-	{:else}
-		<div
-			class="movie-details"
-			in:fly={{ y: 50, duration: 500, delay: 500 }}
-			out:fly={{ duration: 500 }}
-		>
-			<div class="img-container">
-				<img
-					src={'https://image.tmdb.org/t/p/original' + movieDetails.backdrop_path}
-					alt={movieDetails.title}
-				/>
-			</div>
-			<div class="txt-container">
-				<h1>{movieDetails.title}</h1>
-				<p class="overview">{movieDetails.overview}</p>
-				<p>
-					<span>Release date:</span>
-					{movieDetails.release_date} <br />
-					<span>Budget:</span> ${movieDetails.budget.toLocaleString('en-US')} <br />
-					<span>Rating:</span>
-					{movieDetails.vote_average} / 10<br />
-					<span>Runtime:</span>
-					{movieDetails.runtime} mins
-				</p>
-			</div>
 		</div>
 	{/if}
 </div>
@@ -115,26 +98,26 @@
 		font-weight: bold;
 	}
 
-	.collection a {
+	.movie-collection a {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
 	}
 
-	.collection p {
+	.movie-collection p {
 		font-size: 18px;
 		margin-bottom: 1rem;
 	}
 
-	.collection img {
+	.movie-collection img {
 		height: 15vh;
 		object-fit: cover;
 
 		transform: scale(1, 1);
 		transition: transform 0.5s ease;
 	}
-	.collection img:hover {
+	.movie-collection img:hover {
 		transform: scale(1.025, 1.025);
 	}
 
