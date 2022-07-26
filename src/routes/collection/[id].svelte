@@ -26,7 +26,7 @@
 	import { fly } from 'svelte/transition';
 </script>
 
-<div in:fly={{ y: 50, duration: 500, delay: 500 }} out:fly={{ duration: 500 }}>
+<div in:fly={{ y: -50, duration: 500, delay: 500 }} out:fly={{ duration: 500 }}>
 	<div class="collection-details">
 		<h2>{collectionDetails.name}</h2>
 		<p>{collectionDetails.overview}</p>

@@ -32,7 +32,7 @@
 	import { fly } from 'svelte/transition';
 </script>
 
-<div class="wrapper" in:fly={{ y: 50, duration: 500, delay: 500 }} out:fly={{ duration: 500 }}>
+<div class="wrapper" in:fly={{ y: -100, duration: 500, delay: 500 }} out:fly={{ duration: 400 }}>
 	<div class="movie-details">
 		<div class="img-container">
 			<img
@@ -61,7 +61,7 @@
 
 	{#if movieCollection != null}
 		<div class="movie-collection">
-			<a sveltekit:prefetch sveltekit:noscroll href={'/collection/' + movieCollection.id}>
+			<a sveltekit:prefetch href={'/collection/' + movieCollection.id}>
 				<p>Part of the <span>{movieCollection.name}</span></p>
 				<img
 					src={'https://image.tmdb.org/t/p/original' + movieCollection.backdrop_path}
