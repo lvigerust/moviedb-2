@@ -4,22 +4,39 @@
 	console.log(cast[0]);
 </script>
 
-<h1>Cast</h1>
-<div class="actors">
-	{#each cast as actor}
-		<ActorCard {actor} />
-	{/each}
+<div class="cast">
+	<h2>Cast</h2>
+	<div class="actors">
+		<!-- {#each Array(5) as _, actor}
+			<ActorCard {actor} />
+		{/each} -->
+		{#each Array(5) as _, index}
+			<ActorCard {...cast[index]} />
+		{/each}
+	</div>
 </div>
 
+<!-- 
+
+	<ActorCard
+      propA={actors[index].propA}
+      propB={actors[index].propB}
+      propC={actors[index].propC}
+   />
+
+ -->
 <style>
-	h1 {
+	h2 {
+		font-size: 1.2rem;
+		font-weight: bold;
 		text-align: center;
-		margin-bottom: 1rem;
 	}
 	.actors {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-		grid-column-gap: 1.5rem;
-		grid-row-gap: 1rem;
+		margin: 1rem 0 3rem;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 0.5rem;
+		row-gap: 2rem;
 	}
 </style>
