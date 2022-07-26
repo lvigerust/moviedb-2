@@ -40,7 +40,7 @@
 	<div class="movie-details">
 		<div class="img-container">
 			<img
-				src={'https://image.tmdb.org/t/p/original' + movieDetails.backdrop_path}
+				src={'https://image.tmdb.org/t/p/original/' + movieDetails.backdrop_path}
 				alt={movieDetails.title}
 			/>
 		</div>
@@ -74,7 +74,7 @@
 			<a sveltekit:prefetch href={'/collection/' + movieCollection.id}>
 				<p>Part of the <span>{movieCollection.name}</span></p>
 				<img
-					src={'https://image.tmdb.org/t/p/original' + movieCollection.backdrop_path}
+					src={'https://image.tmdb.org/t/p/w1280/' + movieCollection.backdrop_path}
 					alt={movieCollection.name}
 				/>
 			</a>
