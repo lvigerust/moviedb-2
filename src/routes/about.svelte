@@ -1,10 +1,30 @@
 <script>
 	import { fly } from 'svelte/transition';
+	import { transitionStores } from '../transitionStores';
+
+	let message = 'This will be the about page.';
+	let typedChars = '';
+	let index = 0;
+	let typewriter;
+
+	const typeChar = () => {
+		if (index < message.length) {
+			typedChars += message[index];
+			index += 1;
+		} else {
+			// stop typing
+			clearInterval(typewriter);
+		}
+	};
+
+	const typing = () => (typewriter = setInterval(typeChar, 100));
+
+	typing();
 </script>
 
-<div class="content" in:fly={{ y: 50, duration: 500, delay: 500 }} out:fly={{ duration: 500 }}>
+<div class="content" in:fly={{ x: $transitionStores.direction, delay: $transitionStores.duration }}>
 	<div class="text">
-		<h2>This will be the <span>about</span> page.</h2>
+		<h2>{typedChars}</h2>
 	</div>
 </div>
 
@@ -16,9 +36,5 @@
 		gap: 5rem;
 		justify-content: center;
 		align-items: center;
-	}
-
-	span {
-		font-weight: bold;
 	}
 </style>

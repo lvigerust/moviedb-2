@@ -18,9 +18,13 @@
 <script>
 	export let popularMovies;
 	import PopularMovies from '../components/PopularMovies.svelte';
-	import { fly } from 'svelte/transition';
+	import { fly, fade } from 'svelte/transition';
+	import { transitionStores } from '../transitionStores';
 </script>
 
-<section in:fly={{ y: 50, duration: 500, delay: 500 }} out:fly={{ duration: 400 }}>
+<section
+	in:fly={{ y: $transitionStores.direction, delay: $transitionStores.duration }}
+	out:fade={{ duration: $transitionStores.duration }}
+>
 	<PopularMovies {popularMovies} />
 </section>

@@ -27,12 +27,16 @@
 
 <script>
 	export let movieDetails, movieCollection, cast;
-
 	import MovieActors from '../../components/MovieActors.svelte';
-	import { fly } from 'svelte/transition';
+	import { fly, fade } from 'svelte/transition';
+	import { transitionStores } from '../../transitionStores';
 </script>
 
-<div class="wrapper" in:fly={{ y: -100, duration: 500, delay: 500 }} out:fly={{ duration: 400 }}>
+<div
+	class="wrapper"
+	in:fly={{ y: -$transitionStores.direction, delay: $transitionStores.duration }}
+	out:fade={{ duration: $transitionStores.duration }}
+>
 	<div class="movie-details">
 		<div class="img-container">
 			<img
@@ -55,12 +59,18 @@
 		</div>
 	</div>
 
-	<div class="movie-cast">
+	<div
+		class="movie-cast"
+		in:fly={{ x: $transitionStores.direction, delay: $transitionStores.duration1 }}
+	>
 		<MovieActors {cast} />
 	</div>
 
 	{#if movieCollection != null}
-		<div class="movie-collection">
+		<div
+			class="movie-collection"
+			in:fly={{ x: -$transitionStores.direction, delay: $transitionStores.duration2 }}
+		>
 			<a sveltekit:prefetch href={'/collection/' + movieCollection.id}>
 				<p>Part of the <span>{movieCollection.name}</span></p>
 				<img
