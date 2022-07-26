@@ -2,15 +2,10 @@
 	let envVar = import.meta.env.VITE_API;
 
 	export async function load({ fetch, params }) {
-		// Params is the ID of the collection
-		console.log('Collection ID:', params.id);
-
 		const res = await fetch(
 			`https://api.themoviedb.org/3/collection/${params.id}?api_key=${envVar}&language=en-US`
 		);
 		const collectionDetails = await res.json();
-
-		// console.log('Collection details: ', collectionDetails);
 
 		if (res.ok) {
 			return {

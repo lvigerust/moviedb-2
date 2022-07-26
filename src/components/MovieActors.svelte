@@ -7,8 +7,8 @@
 <div class="cast">
 	<h2>Cast</h2>
 	<div class="actors">
-		{#each Array(5) as _, index}
-			<ActorCard name={cast[index].name} avatar={cast[index].profile_path} />
+		{#each cast.slice(0, 5) as actor}
+			<ActorCard {actor} />
 		{/each}
 	</div>
 </div>
