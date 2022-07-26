@@ -19,12 +19,18 @@
 	export let collectionDetails;
 	import MovieCard from '../../components/MovieCard.svelte';
 	import { fly } from 'svelte/transition';
+	import { transitionStores } from '../../transitionStores';
 </script>
 
-<div in:fly={{ y: -50, duration: 500, delay: 500 }} out:fly={{ duration: 500 }}>
+<div
+	in:fly={{ x: $transitionStores.direction, delay: $transitionStores.duration }}
+	out:fly={{ y: $transitionStores.direction, duration: $transitionStores.duration }}
+>
 	<div class="collection-details">
 		<h2>{collectionDetails.name}</h2>
-		<p>{collectionDetails.overview}</p>
+		<p>
+			{collectionDetails.overview}
+		</p>
 	</div>
 
 	<div class="collection-movies">
