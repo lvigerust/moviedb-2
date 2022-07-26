@@ -4,10 +4,10 @@
 </script>
 
 <svelte:head>
-	<title>Movie DB</title>
+	<title>Movie Database</title>
 </svelte:head>
 
+<Navbar />
 <main>
-	<Navbar />
 	<slot />
 </main>
