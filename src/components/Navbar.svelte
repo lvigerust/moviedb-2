@@ -44,7 +44,6 @@
 			>
 				<li><a href="/">Home</a></li>
 				<li><a href="/about">About</a></li>
-				<li><a href="/features">Features</a></li>
 			</ul>
 		</div>
 	</div>

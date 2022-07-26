@@ -1,13 +1,13 @@
 <script>
 	// export let actor;
 	export let name;
-	export let profile_path;
+	export let avatar;
 </script>
 
 <div class="actor-card">
 	<div class="avatar">
 		<div class="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-			<img src={'https://image.tmdb.org/t/p/w200' + profile_path} alt={name} />
+			<img src={'https://image.tmdb.org/t/p/w200' + avatar} alt="" />
 		</div>
 	</div>
 	<h3>{name}</h3>
@@ -19,7 +19,6 @@
 		flex-direction: column;
 		align-items: center;
 		text-align: center;
-		min-width: 150px;
 	}
 	.avatar {
 		margin-bottom: 10px;
