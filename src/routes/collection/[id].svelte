@@ -10,7 +10,7 @@
 		);
 		const collectionDetails = await res.json();
 
-		console.log('Collection details: ', collectionDetails);
+		// console.log('Collection details: ', collectionDetails);
 
 		if (res.ok) {
 			return {
