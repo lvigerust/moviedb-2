@@ -22,10 +22,19 @@
 	}
 
 	import { goto } from '$app/navigation';
+	import { onMount } from 'svelte';
 	import { fade, fly } from 'svelte/transition';
 
 	let active = false;
 	let searchTerm = '';
+
+	onMount(() => {
+		document.addEventListener('keydown', (e) => {
+			if (e.key.toLowerCase() === 'k' && e.metaKey) {
+				active = true;
+			}
+		});
+	});
 </script>
 
 {#if active}

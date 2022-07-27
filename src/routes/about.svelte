@@ -1,5 +1,5 @@
 <script>
-	import { fly } from 'svelte/transition';
+	import { fly, fade, slide, blur } from 'svelte/transition';
 	import { transitionStores } from '../transitionStores';
 
 	let message = 'This will be the about page...    :)';
@@ -17,15 +17,22 @@
 		}
 	};
 
-	const typing = () => (typewriter = setInterval(typeChar, 100));
+	const typing = () => (typewriter = setInterval(typeChar, 90));
 
 	typing();
 </script>
 
-<div class="content" in:fly={{ x: $transitionStores.direction, delay: $transitionStores.duration }}>
+<div
+	class="content"
+	in:fly={{ y: -$transitionStores.direction, delay: $transitionStores.duration }}
+	out:fade={{ duration: $transitionStores.duration }}
+>
 	<div class="text">
 		<h2>{typedChars}</h2>
 	</div>
+	<a href="/error" in:slide={{ delay: 4000, duration: 600 }}>
+		<button class="btn  btn-error">See Error page</button>
+	</a>
 </div>
 
 <style>
@@ -33,7 +40,7 @@
 		height: 80vh;
 		display: flex;
 		flex-direction: column;
-		gap: 5rem;
+		gap: 3rem;
 		justify-content: center;
 		align-items: center;
 	}
