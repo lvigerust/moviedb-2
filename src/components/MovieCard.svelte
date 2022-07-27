@@ -1,8 +1,7 @@
 <script>
 	export let movie;
 
-	const released = movie.release_date.split('-');
-	const year = released[0];
+	const date = new Date(movie.release_date);
 </script>
 
 <div class="movie-card">
@@ -10,7 +9,7 @@
 		<img src={'https://image.tmdb.org/t/p/w500' + movie.poster_path} alt={movie.title} />
 		<div class="description">
 			<h2>{movie.title}</h2>
-			<p>{year}</p>
+			<p>{movie.release_date}</p>
 		</div>
 	</a>
 </div>

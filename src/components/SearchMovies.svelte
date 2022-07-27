@@ -38,6 +38,7 @@
 		out:fly={{ x: 25, duration: 250 }}
 	>
 		<label for="search_movie" />
+		<!-- svelte-ignore a11y-autofocus -->
 		<input
 			bind:value={searchTerm}
 			type="text"

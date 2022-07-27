@@ -40,7 +40,7 @@
 	<div class="movie-details">
 		<div class="img-container">
 			<img
-				src={'https://image.tmdb.org/t/p/original/' + movieDetails.backdrop_path}
+				src={'https://image.tmdb.org/t/p/w1280/' + movieDetails.backdrop_path}
 				alt={movieDetails.title}
 			/>
 		</div>
