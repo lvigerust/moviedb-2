@@ -71,7 +71,7 @@
 			class="movie-collection"
 			in:fly={{ x: -$transitionStores.direction, delay: $transitionStores.duration2 }}
 		>
-			<a sveltekit:prefetch href={'/collection/' + movieCollection.id}>
+			<a sveltekit:prefetch sveltekit:noscroll href={'/collection/' + movieCollection.id}>
 				<p>Part of the <span>{movieCollection.name}</span></p>
 				<img
 					src={'https://image.tmdb.org/t/p/w1280/' + movieCollection.backdrop_path}

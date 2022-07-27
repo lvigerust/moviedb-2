@@ -2,7 +2,7 @@
 	import { fly } from 'svelte/transition';
 	import { transitionStores } from '../transitionStores';
 
-	let message = 'This will be the about page.';
+	let message = 'This will be the about page...    :)';
 	let typedChars = '';
 	let index = 0;
 	let typewriter;

@@ -44,14 +44,12 @@
 	h2 {
 		font-size: 2em;
 		font-weight: bold;
+		margin: -1rem 0 2rem;
 	}
 	.collection-details {
 		text-align: center;
-	}
-
-	.collection-details p {
-		margin: 2rem auto;
-		max-width: 1200px;
+		margin: 2rem 15%;
+		max-width: 1152px;
 	}
 
 	.collection-movies {
@@ -59,5 +57,11 @@
 		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 		grid-column-gap: 1rem;
 		grid-row-gap: 2rem;
+	}
+
+	@media only screen and (max-width: 768px) {
+		.collection-details {
+			margin: 2rem 5%;
+		}
 	}
 </style>
