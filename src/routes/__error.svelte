@@ -27,14 +27,20 @@
 	const typing = () => (typewriter = setInterval(typeChar, 50));
 
 	typing();
+
+	import { blur, fade } from 'svelte/transition';
 </script>
 
-<img src="/404-bg.jpg" alt="" />
-<div class="background">
-	<div class="content">
-		<h2>{status}</h2>
-		<p>error: {error.message}</p>
-		<a href="/">{typedChars}</a>
+<div out:fade>
+	<div class="background">
+		<img src="/404-bg.jpg" alt="" in:blur={{ delay: 500 }} />
+		<div class="content">
+			<h2>{status}</h2>
+			<p>
+				error: {error.message}
+			</p>
+			<a href="/">{typedChars}</a>
+		</div>
 	</div>
 </div>
 
@@ -52,7 +58,7 @@
 	.background {
 		width: 100vw;
 		height: 100vh;
-		position: absolute;
+		position: fixed;
 		top: 0;
 		left: 0;
 		display: flex;
@@ -63,6 +69,7 @@
 	.content {
 		text-align: center;
 		margin: 0 2rem;
+		filter: drop-shadow(0px 5px 1vh rgba(40, 40, 40, 0.15));
 	}
 	h2 {
 		line-height: 1;

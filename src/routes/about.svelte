@@ -1,8 +1,8 @@
 <script>
-	import { fly, fade, slide, blur } from 'svelte/transition';
+	import { fly, fade, slide } from 'svelte/transition';
 	import { transitionStores } from '../transitionStores';
 
-	let message = 'This will be the about page...    :)';
+	let message = 'This will be the about page.';
 	let typedChars = '';
 	let index = 0;
 	let typewriter;
@@ -30,7 +30,8 @@
 	<div class="text">
 		<h2>{typedChars}</h2>
 	</div>
-	<a href="/error" in:slide={{ delay: 4000, duration: 600 }}>
+
+	<a href="/error" in:slide={{ delay: 4000, duration: $transitionStores.duration }}>
 		<button class="btn  btn-error">See Error page</button>
 	</a>
 </div>
