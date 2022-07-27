@@ -30,6 +30,34 @@
 	import MovieActors from '../../components/MovieActors.svelte';
 	import { fly, fade } from 'svelte/transition';
 	import { transitionStores } from '../../transitionStores';
+
+	const date = new Date(movieDetails.release_date);
+	const months = [
+		'January',
+		'February',
+		'March',
+		'April',
+		'May',
+		'June',
+		'July',
+		'August',
+		'September',
+		'October',
+		'November',
+		'December'
+	];
+
+	let day = date.getDate();
+	let month = months[date.getMonth()];
+	let year = date.getFullYear();
+
+	$: formattedDate = `${month} ${day}, ${year}`;
+
+	function Runtime(minutes) {
+		let h = Math.floor(minutes / 60);
+		let m = minutes % 60;
+		return (h + 'h ' + m + 'm').toString();
+	}
 </script>
 
 <div
@@ -49,12 +77,12 @@
 			<p class="overview">{movieDetails.overview}</p>
 			<p>
 				<span>Release date:</span>
-				{movieDetails.release_date} <br />
+				{formattedDate} <br />
 				<span>Budget:</span> ${movieDetails.budget.toLocaleString('en-US')} <br />
 				<span>Rating:</span>
-				{movieDetails.vote_average} / 10<br />
+				{Math.round(movieDetails.vote_average * 10) / 10} / 10<br />
 				<span>Runtime:</span>
-				{movieDetails.runtime} mins
+				{Runtime(movieDetails.runtime)}
 			</p>
 		</div>
 	</div>
