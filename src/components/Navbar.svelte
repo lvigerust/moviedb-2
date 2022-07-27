@@ -66,4 +66,10 @@
 		padding-left: 2rem;
 		padding-right: 2rem;
 	}
+
+	@media only screen and (max-width: 630px) {
+		.navbar-center .normal-case {
+			font-size: 18px;
+		}
+	}
 </style>

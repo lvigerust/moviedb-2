@@ -81,4 +81,10 @@
 	.btn {
 		position: absolute;
 	}
+
+	@media only screen and (max-width: 630px) {
+		.search .input {
+			width: 100px;
+		}
+	}
 </style>

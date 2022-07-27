@@ -63,5 +63,11 @@
 		.collection-details {
 			margin: 2rem 5%;
 		}
+		.collection-movies {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			flex-wrap: wrap;
+		}
 	}
 </style>

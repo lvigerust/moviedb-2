@@ -17,12 +17,11 @@
 <style>
 	img {
 		width: 100%;
-		height: 30vh;
+		height: 40vh;
 		object-fit: cover;
 		border-radius: 0.75rem;
 		margin-bottom: 0.75rem;
 
-		/* Effects */
 		box-shadow: 0px 7.5px 2vh rgba(25, 25, 25, 0.5);
 		transform: scale(1, 1);
 		transition: transform 0.5s ease;
@@ -52,8 +51,20 @@
 	}
 
 	@media only screen and (max-width: 768px) {
+		img {
+			height: 40vh;
+		}
 		img:hover {
 			transform: scale(1, 1);
+		}
+		.movie-card {
+			width: 310px;
+		}
+	}
+
+	@media only screen and (min-height: 1000px) {
+		img {
+			height: 30vh;
 		}
 	}
 </style>
