@@ -31,6 +31,7 @@
 	onMount(() => {
 		document.addEventListener('keydown', (e) => {
 			if (e.key.toLowerCase() === 'k' && e.metaKey) {
+				e.preventDefault();
 				active = true;
 			}
 		});
