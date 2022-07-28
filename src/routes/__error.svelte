@@ -28,15 +28,16 @@
 
 	typing();
 
-	import { blur, fade } from 'svelte/transition';
+	import { blur, fade, fly } from 'svelte/transition';
+	import { transitionStores } from '../transitionStores';
 </script>
 
 <div out:fade>
 	<div class="background">
-		<img src="/404-bg.jpg" alt="" in:blur={{ delay: 500 }} />
+		<img src="/404-bg.jpg" alt="" in:blur={{ delay: $transitionStores.duration }} />
 		<div class="content">
-			<h2>{status}</h2>
-			<p>
+			<h2 in:fly={{ x: 500, delay: $transitionStores.duration1 }}>{status}</h2>
+			<p in:fly={{ x: -500, delay: $transitionStores.duration2 }}>
 				error: {error.message}
 			</p>
 			<a href="/">{typedChars}</a>

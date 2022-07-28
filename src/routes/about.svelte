@@ -31,7 +31,7 @@
 		<h2>{typedChars}</h2>
 	</div>
 
-	<a href="/error" in:slide={{ delay: 4000, duration: $transitionStores.duration }}>
+	<a href="/error" in:slide={{ delay: 2500, duration: $transitionStores.duration }}>
 		<button class="btn  btn-error">See Error page</button>
 	</a>
 </div>
