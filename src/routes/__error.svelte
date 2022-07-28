@@ -8,7 +8,7 @@
 
 <script>
 	import { blur, fade, fly } from 'svelte/transition';
-	import { transitionStores } from '../transitionStores';
+	import { transitionStores } from '../stores/transitionStores';
 
 	export let error, status;
 </script>

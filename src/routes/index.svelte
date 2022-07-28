@@ -19,7 +19,7 @@
 	export let popularMovies;
 	import PopularMovies from '../components/PopularMovies.svelte';
 	import { fly, fade } from 'svelte/transition';
-	import { transitionStores } from '../transitionStores';
+	import { transitionStores } from '../stores/transitionStores';
 </script>
 
 <section

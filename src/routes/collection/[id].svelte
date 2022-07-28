@@ -19,7 +19,7 @@
 	export let collectionDetails;
 	import MovieCard from '../../components/MovieCard.svelte';
 	import { fly } from 'svelte/transition';
-	import { transitionStores } from '../../transitionStores';
+	import { transitionStores } from '../../stores/transitionStores';
 </script>
 
 <div

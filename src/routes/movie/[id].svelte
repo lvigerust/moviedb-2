@@ -29,7 +29,7 @@
 	export let movieDetails, movieCollection, cast;
 	import MovieActors from '../../components/MovieActors.svelte';
 	import { fly, fade } from 'svelte/transition';
-	import { transitionStores } from '../../transitionStores';
+	import { transitionStores } from '../../stores/transitionStores';
 
 	const date = new Date(movieDetails.release_date);
 	const months = [

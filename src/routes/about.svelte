@@ -1,6 +1,6 @@
 <script>
 	import { fly, fade, slide } from 'svelte/transition';
-	import { transitionStores } from '../transitionStores';
+	import { transitionStores } from '../stores/transitionStores';
 
 	let message = 'This will be the about page.';
 	let typedChars = '';
