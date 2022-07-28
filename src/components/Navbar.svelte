@@ -17,8 +17,24 @@
 	$: scrollDirection = deriveDirection(currentY);
 	$: offscreen = scrollDirection === 'down' && currentY > clientHeight * 4;
 
-	let darkMode = false;
+	/* Function to close dropdown when clicking outside on mobile */
+	function clickOutside(node) {
+		const handleClick = (event) => {
+			if (!node.contains(event.target)) {
+				node.dispatchEvent(new CustomEvent('outclick'));
+			}
+		};
 
+		document.addEventListener('click', handleClick, true);
+
+		return {
+			destroy() {
+				document.removeEventListener('click', handleClick, true);
+			}
+		};
+	}
+
+	let darkMode = false;
 	if ($theme === 'dracula') {
 		darkMode = true;
 	} else {
@@ -59,6 +75,7 @@
 				<ul
 					tabindex="0"
 					class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+					use:clickOutside
 				>
 					<li><a href="/">Home</a></li>
 					<li><a href="/about">About</a></li>
