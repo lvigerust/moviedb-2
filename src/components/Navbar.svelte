@@ -104,6 +104,15 @@
 		padding-right: 2rem;
 	}
 
+	.swap {
+		display: inline-flex;
+		height: 2rem;
+	}
+	.swap-on,
+	.swap-off {
+		position: fixed;
+	}
+
 	@media only screen and (max-width: 630px) {
 		.navbar-center .normal-case {
 			font-size: 18px;
