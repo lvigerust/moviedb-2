@@ -11,3 +11,7 @@
 .navbar {
 	@apply min-h-[10vh];
 }
+
+.dropdown .w-52 {
+	@apply max-w-[11.5rem];
+}
