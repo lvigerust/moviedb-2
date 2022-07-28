@@ -7,29 +7,10 @@
 </script>
 
 <script>
-	export let error, status;
-
-	let message = "Hello, is it me you're looking for?";
-	let typedChars = '';
-	let index = 0;
-	let typewriter;
-
-	const typeChar = () => {
-		if (index < message.length) {
-			typedChars += message[index];
-			index += 1;
-		} else {
-			// stop typing
-			clearInterval(typewriter);
-		}
-	};
-
-	const typing = () => (typewriter = setInterval(typeChar, 50));
-
-	typing();
-
 	import { blur, fade, fly } from 'svelte/transition';
 	import { transitionStores } from '../transitionStores';
+
+	export let error, status;
 </script>
 
 <div out:fade>
@@ -40,7 +21,9 @@
 			<p in:fly={{ x: -500, delay: $transitionStores.duration2 }}>
 				error: {error.message}
 			</p>
-			<a href="/">{typedChars}</a>
+			<a href="/" in:fade={{ duration: 750, delay: $transitionStores.duration2 + 1000 }}
+				>Hello, is it me you're looking for?</a
+			>
 		</div>
 	</div>
 </div>
