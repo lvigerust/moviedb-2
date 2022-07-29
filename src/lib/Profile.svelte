@@ -3,6 +3,7 @@
 	import { user } from '$lib/sessionStore';
 	import { fade, fly } from 'svelte/transition';
 	import { transitionStores } from '../stores/transitionStores';
+	import Avatar from '$lib/Avatar.svelte';
 
 	let loading = true;
 	let username = null;
@@ -81,18 +82,15 @@
 	on:submit|preventDefault={updateProfile}
 	in:fade={{ delay: $transitionStores.duration }}
 >
-	<div class="hero min-h-[80vh] bg-base">
+	<div class="hero min-h-[75vh] bg-base">
 		<div class="hero-content flex-col">
 			<div
 				class="flex flex-col items-center gap-4"
 				in:fly={{ x: $transitionStores.direction, delay: $transitionStores.duration1 }}
 			>
-				<h1 class="text-5xl font-bold">Hello, {username || $user.email}!</h1>
-
-				<p class="max-w-2xl text-center my-4">
-					You just ordered a thousand litres of milk. Unfortunately, there is no refund policy, but
-					you are free to resell it if you manage.
-				</p>
+				<!-- Add to body -->
+				<Avatar bind:path={avatar_url} on:upload={updateProfile} />
+				<h1 class="text-4xl font-bold">{username || $user.email}</h1>
 
 				<div class="form-control w-full max-w-xs">
 					<label class="label" for="email">
