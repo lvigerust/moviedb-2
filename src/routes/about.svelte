@@ -22,6 +22,9 @@
 	typing();
 </script>
 
+<svelte:head>
+	<title>About</title>
+</svelte:head>
 <div
 	class="content"
 	in:fly={{ y: -$transitionStores.direction, delay: $transitionStores.duration }}

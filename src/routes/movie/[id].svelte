@@ -60,6 +60,10 @@
 	}
 </script>
 
+<svelte:head>
+	<title>{movieDetails.title}</title>
+</svelte:head>
+
 <div
 	class="wrapper"
 	in:fly={{ y: -$transitionStores.direction, delay: $transitionStores.duration }}

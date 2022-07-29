@@ -21,6 +21,10 @@
 	};
 </script>
 
+<svelte:head>
+	<title>Login / Signup</title>
+</svelte:head>
+
 {#if message}
 	<div
 		class="alert alert-info shadow-lg w-fit md:px-24 absolute top-8 mx-auto inset-x-0 z-50"
@@ -50,8 +54,8 @@
 			<div class="text-center lg:text-left lg:ml-8">
 				<h1 class="text-5xl font-bold">Login now!</h1>
 				<p class="py-6">
-					Login to Stinkmeaner's database to share all your data about your personal life. Trust me,
-					all the data is totally safe and would never end up in the wrong place or be exploited.
+					Login to Stinkmeaner's database to share all data about your personal life. Trust me, all
+					the data is totally safe and would never end up in the wrong place or be exploited.
 				</p>
 			</div>
 			<div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">

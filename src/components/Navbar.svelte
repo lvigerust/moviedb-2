@@ -3,6 +3,7 @@
 	import { theme } from '../stores/themeStores';
 	import { onMount } from 'svelte';
 	import { themeChange } from 'theme-change';
+	import { user } from '$lib/sessionStore';
 
 	let previousY = 0;
 	let currentY = 0;
@@ -78,8 +79,13 @@
 					use:clickOutside
 				>
 					<li><a href="/">Home</a></li>
-					<li><a href="/login">Login</a></li>
 					<li><a href="/about">About</a></li>
+
+					{#if $user}
+						<li><a href="/login">Profile</a></li>
+					{:else}
+						<li><a href="/login">Login / Sign Up</a></li>
+					{/if}
 					<li>
 						<label class="swap swap-rotate">
 							<!-- this hidden checkbox controls the state -->

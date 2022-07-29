@@ -22,6 +22,10 @@
 	import { transitionStores } from '../../stores/transitionStores';
 </script>
 
+<svelte:head>
+	<title>{collectionDetails.name}</title>
+</svelte:head>
+
 <div
 	in:fly={{ x: $transitionStores.direction, delay: $transitionStores.duration }}
 	out:fly={{ y: $transitionStores.direction, duration: $transitionStores.duration }}

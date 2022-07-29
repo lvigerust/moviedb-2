@@ -72,6 +72,10 @@
 	}
 </script>
 
+<svelte:head>
+	<title>Profile</title>
+</svelte:head>
+
 <form
 	use:getProfile
 	on:submit|preventDefault={updateProfile}
@@ -79,10 +83,13 @@
 >
 	<div class="hero min-h-[80vh] bg-base">
 		<div class="hero-content flex-col">
-			<div class="flex flex-col items-center text-center justify-center">
-				<h1 class="text-5xl font-bold mb-3">Hello, {username || $user.email}!</h1>
+			<div
+				class="flex flex-col items-center gap-4"
+				in:fly={{ x: $transitionStores.direction, delay: $transitionStores.duration1 }}
+			>
+				<h1 class="text-5xl font-bold">Hello, {username || $user.email}!</h1>
 
-				<p class="max-w-2xl text-center mb-6">
+				<p class="max-w-2xl text-center my-4">
 					You just ordered a thousand litres of milk. Unfortunately, there is no refund policy, but
 					you are free to resell it if you manage.
 				</p>
@@ -128,7 +135,10 @@
 				</div>
 			</div>
 
-			<div class="flex flex-col gap-3">
+			<div
+				class="flex flex-col gap-3"
+				in:fly={{ x: -$transitionStores.direction, delay: $transitionStores.duration2 }}
+			>
 				<button class="btn btn-primary w-52 mt-6">
 					<input
 						type="submit"

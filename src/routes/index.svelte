@@ -22,6 +22,10 @@
 	import { transitionStores } from '../stores/transitionStores';
 </script>
 
+<svelte:head>
+	<title>Stinkmeaner Inc.</title>
+</svelte:head>
+
 <section
 	in:fly={{ y: $transitionStores.direction, delay: $transitionStores.duration }}
 	out:fade={{ duration: $transitionStores.duration }}

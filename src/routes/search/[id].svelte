@@ -24,6 +24,10 @@
 	import { transitionStores } from '../../stores/transitionStores';
 </script>
 
+<svelte:head>
+	<title>Search</title>
+</svelte:head>
+
 <div
 	class="searched-movies"
 	in:fly={{ y: $transitionStores.direction, delay: $transitionStores.duration }}
