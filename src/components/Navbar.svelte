@@ -82,9 +82,9 @@
 					<li><a href="/about">About</a></li>
 
 					{#if $user}
-						<li><a href="/login">Profile</a></li>
+						<li><a href="/user">Profile</a></li>
 					{:else}
-						<li><a href="/login">Login / Sign Up</a></li>
+						<li><a href="/user">Login / Sign Up</a></li>
 					{/if}
 					<li>
 						<label class="swap swap-rotate">
@@ -143,7 +143,7 @@
 			</div>
 		</div>
 		<div class="navbar-center">
-			<a href="/" class="btn btn-ghost normal-case text-xl ">Stinkmeaner Inc.</a>
+			<a href="/" class="btn btn-ghost normal-case text-xl ">Stinkmeaner</a>
 		</div>
 		<div class="navbar-end">
 			<SearchMovies />
