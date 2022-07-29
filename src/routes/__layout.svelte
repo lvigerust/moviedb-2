@@ -4,7 +4,7 @@
 </script>
 
 <svelte:head>
-	<title>Movie Database</title>
+	<title>Stinkmeaner Inc.</title>
 </svelte:head>
 
 <Navbar />
